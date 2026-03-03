@@ -18,10 +18,10 @@
                     parola = livello1[0];
                     for(int i = 0;i< parola.Length; i++)
                     {
-                        p = parola.Replace(parola[i], '_');
+                        parola = parola.Replace(parola[i], '_');
                        
                     }
-                    Console.WriteLine(p);
+                    Console.WriteLine(parola);
                     Console.WriteLine();
                     Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
                     int scelta = Convert.ToInt32(Console.ReadLine());
@@ -36,7 +36,7 @@
                             for(int i = 0; i< p.Length; i++)
                             {
                                 int punto = p.IndexOf(lettera);
-                                p = parola.Replace(p[punto], lettera[0]);
+                                p = parola.Replace(parola[punto], lettera[0]);
                             }
                             Console.WriteLine(p);
                         }
