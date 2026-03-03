@@ -4,7 +4,8 @@
     {
         static void impiccato(string[] livello1, string[] livello2, string[] livello3)
         {
-            string parola = "", lettera = "", p = "";
+            string parola = "", lettera = "", nascosta = "";
+            char[] pa;
             Random rnd = new Random();
             Console.WriteLine("scegli il livello di difficoltà");
             Console.WriteLine("-------------------------------");
@@ -16,12 +17,14 @@
                 if (rand == 1)
                 {
                     parola = livello1[0];
+                    
                     for(int i = 0;i< parola.Length; i++)
                     {
-                        parola = parola.Replace(parola[i], '_');
-                       
+                        nascosta += "_";
+                        
                     }
-                    Console.WriteLine(parola);
+                    Console.WriteLine(nascosta);
+                    pa = nascosta.ToCharArray();
                     Console.WriteLine();
                     Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
                     int scelta = Convert.ToInt32(Console.ReadLine());
@@ -29,17 +32,17 @@
                     {
                         Console.WriteLine("Che lettera vuoi inserire?");
                         lettera = Console.ReadLine();
-                        bool s = false;
-                        s = parola.Contains(lettera);
-                        if(s = true)
+                        for(int i = 0; i< parola.Length; i++)
                         {
-                            for(int i = 0; i< p.Length; i++)
+                            if (parola[i] == lettera[0])
                             {
-                                int punto = p.IndexOf(lettera);
-                                p = parola.Replace(parola[punto], lettera[0]);
+                                pa[i] = lettera[0];
                             }
-                            Console.WriteLine(p);
+                            Console.WriteLine(pa);
+
+
                         }
+
                     }
 
 
