@@ -4,8 +4,9 @@
     {
         static void impiccato(string[] livello1, string[] livello2, string[] livello3)
         {
+            int z = 0;
             string parola = "", lettera = "", nascosta = "";
-            char[] pa;
+            char[] pa, paroleUsate = { };
             Random rnd = new Random();
             Console.WriteLine("scegli il livello di difficoltà");
             Console.WriteLine("-------------------------------");
@@ -18,7 +19,7 @@
                 {
                     for (int k = 0; k < 7; k++)
                     {
-                        Console.WriteLine("Hai 7 tentetivi per indovinare la parola segreta");
+                        Console.WriteLine("Hai " + k  + " tentetivi per indovinare la parola segreta");
                         parola = livello1[0];
                         for (int i = 0; i < parola.Length; i++)
                         {
@@ -34,15 +35,24 @@
                         {
                             Console.WriteLine("Che lettera vuoi inserire?");
                             lettera = Console.ReadLine();
-                            for (int i = 0; i < parola.Length; i++)
+
+                            bool contiene = false;
+                            contiene = parola.Contains(lettera);
+                            if(contiene == true)
                             {
-                                if (parola[i] == lettera[0])
+                                for(int i = 0;i < parola.Length; i++)
                                 {
-                                    pa[i] = lettera[0];
+                                    if (parola[i] == lettera[0])
+                                    {
+                                        pa[i] = lettera[0];
+                                    }
                                 }
-                                Console.WriteLine(pa);
-
-
+                            }
+                            else
+                            {
+                                Console.WriteLine("La lettera " + lettera + " non e nella parola");
+                                paroleUsate[z] = lettera[0];
+                                z++;
                             }
 
                         }
@@ -63,6 +73,7 @@
 
 
                     }
+                    Console.WriteLine("Hai esaurito i tentativi");
                 }
                 else if (rand == 2)
                 {
