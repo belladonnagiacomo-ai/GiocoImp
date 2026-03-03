@@ -16,36 +16,53 @@
                 int rand = rnd.Next(1, 3);
                 if (rand == 1)
                 {
-                    parola = livello1[0];
-                    
-                    for(int i = 0;i< parola.Length; i++)
+                    for (int k = 0; k < 7; k++)
                     {
-                        nascosta += "_";
-                        
-                    }
-                    Console.WriteLine(nascosta);
-                    pa = nascosta.ToCharArray();
-                    Console.WriteLine();
-                    Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
-                    int scelta = Convert.ToInt32(Console.ReadLine());
-                    if(scelta == 1)
-                    {
-                        Console.WriteLine("Che lettera vuoi inserire?");
-                        lettera = Console.ReadLine();
-                        for(int i = 0; i< parola.Length; i++)
+                        Console.WriteLine("Hai 7 tentetivi per indovinare la parola segreta");
+                        parola = livello1[0];
+                        for (int i = 0; i < parola.Length; i++)
                         {
-                            if (parola[i] == lettera[0])
-                            {
-                                pa[i] = lettera[0];
-                            }
-                            Console.WriteLine(pa);
-
+                            nascosta += "_";
 
                         }
+                        Console.WriteLine(nascosta);
+                        pa = nascosta.ToCharArray();
+                        Console.WriteLine();
+                        Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
+                        int scelta = Convert.ToInt32(Console.ReadLine());
+                        if (scelta == 1)
+                        {
+                            Console.WriteLine("Che lettera vuoi inserire?");
+                            lettera = Console.ReadLine();
+                            for (int i = 0; i < parola.Length; i++)
+                            {
+                                if (parola[i] == lettera[0])
+                                {
+                                    pa[i] = lettera[0];
+                                }
+                                Console.WriteLine(pa);
+
+
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Inserisci la parola");
+                            string indovina = Console.ReadLine();
+                            if (indovina == parola)
+                            {
+                                Console.WriteLine("Hai indovinato la parola, che era " + parola);
+                                return;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Non hai indovinato la parola");
+                            }
+                        }
+
 
                     }
-
-
                 }
                 else if (rand == 2)
                 {
@@ -58,7 +75,7 @@
                     Console.WriteLine(parola);
 
                 }
-                else if(rand == 3)
+                else if (rand == 3)
                 {
                     parola = livello1[2];
                     for (int i = 0; i < parola.Length; i++)
