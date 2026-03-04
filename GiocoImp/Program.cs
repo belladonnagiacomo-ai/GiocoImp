@@ -5,7 +5,7 @@
         static void impiccato(string[] livello1, string[] livello2, string[] livello3)
         {
             int z = 0;
-            string parola = "", lettera = "", nascosta = "";
+            string parola = "", nascosta = "";
             char[] pa, paroleUsate = { };
             Random rnd = new Random();
             Console.WriteLine("scegli il livello di difficoltà");
@@ -17,9 +17,8 @@
                 int rand = rnd.Next(1, 3);
                 if (rand == 1)
                 {
-                    for (int k = 0; k < 7; k++)
-                    {
-                        Console.WriteLine("Hai " + k  + " tentetivi per indovinare la parola segreta");
+                   
+                       
                         parola = livello1[0];
                         for (int i = 0; i < parola.Length; i++)
                         {
@@ -28,13 +27,15 @@
                         }
                         Console.WriteLine(nascosta);
                         pa = nascosta.ToCharArray();
+                    for(int k = 7; k > 0; k--) {
+                        Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
                         Console.WriteLine();
                         Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
                         int scelta = Convert.ToInt32(Console.ReadLine());
                         if (scelta == 1)
                         {
                             Console.WriteLine("Che lettera vuoi inserire?");
-                            lettera = Console.ReadLine();
+                            char lettera = Convert.ToChar(Console.ReadLine());
 
                             bool contiene = false;
                             contiene = parola.Contains(lettera);
@@ -42,16 +43,17 @@
                             {
                                 for(int i = 0;i < parola.Length; i++)
                                 {
-                                    if (parola[i] == lettera[0])
+                                    if (parola[i] == lettera)
                                     {
-                                        pa[i] = lettera[0];
+                                        pa[i] = lettera;
+                                        Console.WriteLine(pa);
                                     }
                                 }
                             }
                             else
                             {
                                 Console.WriteLine("La lettera " + lettera + " non e nella parola");
-                                paroleUsate[z] = lettera[0];
+                                paroleUsate[z] = lettera;
                                 z++;
                             }
 
