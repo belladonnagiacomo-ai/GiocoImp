@@ -17,6 +17,7 @@
                             nascosta += "_";
 
                         }
+                        Console.WriteLine("-------------------------");
                         Console.WriteLine(nascosta);
                         pa = nascosta.ToCharArray();
                     for(int k = 7; k > 0; k--) {
@@ -85,6 +86,7 @@
                         nascosta += "_";
 
                     }
+                    Console.WriteLine("-------------------------");
                     Console.WriteLine(nascosta);
                     pa = nascosta.ToCharArray();
                     for (int k = 7; k > 0; k--)
@@ -153,6 +155,7 @@
                         nascosta += "_";
 
                     }
+                    Console.WriteLine("-------------------------");
                     Console.WriteLine(nascosta);
                     pa = nascosta.ToCharArray();
                     for (int k = 7; k > 0; k--)
@@ -221,6 +224,7 @@
                     nascosta += "_";
 
                 }
+                Console.WriteLine("-------------------------");
                 Console.WriteLine(nascosta);
                 pa = nascosta.ToCharArray();
                 for (int k = 7; k > 0; k--)
@@ -289,6 +293,7 @@
                     nascosta += "_";
 
                 }
+                Console.WriteLine("-------------------------");
                 Console.WriteLine(nascosta);
                 pa = nascosta.ToCharArray();
                 for (int k = 7; k > 0; k--)
