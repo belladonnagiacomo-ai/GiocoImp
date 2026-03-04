@@ -8,9 +8,6 @@
             string parola = "", nascosta = "";
             char[] pa, paroleUsate = new char [7];
             Random rnd = new Random();
-        
-          
-            
                 int rand = rnd.Next(1, 5);
                 if (rand == 1)
                 {
@@ -77,6 +74,7 @@
 
                     }
                     Console.WriteLine("Hai esaurito i tentativi");
+                    Console.WriteLine("La parola e: " + parola);
                 }
                 else if (rand == 2)
                 {
@@ -92,7 +90,12 @@
                     for (int k = 7; k > 0; k--)
                     {
                         Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
-                        Console.WriteLine();
+                    Console.WriteLine();
+                    for (int j = 0; j < z; j++)
+                    {
+                        Console.WriteLine("le parole usate sono: " + paroleUsate[j]);
+                    }
+                    Console.WriteLine();
                         Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
                         int scelta = Convert.ToInt32(Console.ReadLine());
                         if (scelta == 1)
@@ -139,7 +142,7 @@
 
                     }
                     Console.WriteLine("Hai esaurito i tentativi");
-
+                    Console.WriteLine("La parola e: " + parola);
                 }
                 else if (rand == 3)
                 {
@@ -155,7 +158,12 @@
                     for (int k = 7; k > 0; k--)
                     {
                         Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
-                        Console.WriteLine();
+                    Console.WriteLine();
+                    for (int j = 0; j < z; j++)
+                    {
+                        Console.WriteLine("le parole usate sono: " + paroleUsate[j]);
+                    }
+                    Console.WriteLine();
                         Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
                         int scelta = Convert.ToInt32(Console.ReadLine());
                         if (scelta == 1)
@@ -202,6 +210,7 @@
 
                     }
                     Console.WriteLine("Hai esaurito i tentativi");
+                    Console.WriteLine("La parola e: " + parola);
 
                 }
             else if (rand == 4)
@@ -270,6 +279,7 @@
 
                 }
                 Console.WriteLine("Hai esaurito i tentativi");
+                Console.WriteLine("La parola e: " + parola);
             }
             else if (rand == 5)
             {
@@ -337,6 +347,8 @@
 
                 }
                 Console.WriteLine("Hai esaurito i tentativi");
+                Console.WriteLine("La parola e: " + parola);
+
             }
         }
            
@@ -354,14 +366,32 @@
             if(livello == 1)
             {
                 impiccato(livello1,livello);
+                Console.WriteLine("Vuoi rigiocare?(s/n)");
+                string s = Console.ReadLine();
+                if(s == "s")
+                {
+                    impiccato(livello1, livello);
+                }
             }
             else if(livello == 2)
             {
                 impiccato(livello2, livello);
+                Console.WriteLine("Vuoi rigiocare?(s/n)");
+                string s = Console.ReadLine();
+                if (s == "s")
+                {
+                    impiccato(livello2, livello);
+                }
             }
             else if (livello == 3)
             {
                 impiccato(livello3, livello);
+                Console.WriteLine("Vuoi rigiocare?(s/n)");
+                string s = Console.ReadLine();
+                if (s == "s")
+                {
+                    impiccato(livello3, livello);
+                }
             }
            
         }
