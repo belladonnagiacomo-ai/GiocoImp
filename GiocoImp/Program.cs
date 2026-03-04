@@ -2,6 +2,14 @@
 {
     internal class Program
     {
+        static char[] paroleU(char[] paroleUsate, int z)
+        {
+            for (int j = 0; j < z; j++)
+            {
+                Console.WriteLine("le parole usate sono: " + paroleUsate[j]);
+            }
+            return paroleUsate;
+        }
         static void impiccato(string[] livello1,int livello)
         {
             int z = 0;
@@ -11,23 +19,21 @@
                 int rand = rnd.Next(1, 5);
                 if (rand == 1)
                 {
+                        Console.WriteLine();
                         parola = livello1[0];
                         for (int i = 0; i < parola.Length; i++)
                         {
                             nascosta += "_";
 
                         }
-                        Console.WriteLine("-------------------------");
+                        
                         Console.WriteLine(nascosta);
                         pa = nascosta.ToCharArray();
                     for(int k = 7; k > 0; k--) {
                         Console.WriteLine();
                         Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
                         Console.WriteLine();
-                        for(int j = 0; j < z; j++)
-                        {
-                            Console.WriteLine("le parole usate sono: " + paroleUsate[j]);
-                        }
+                        paroleU(paroleUsate, z);
                         Console.WriteLine();
                         Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
                         int scelta = Convert.ToInt32(Console.ReadLine());
@@ -35,7 +41,6 @@
                         {
                             Console.WriteLine("Che lettera vuoi inserire?");
                             char lettera = Convert.ToChar(Console.ReadLine());
-
                             bool contiene = false;
                             contiene = parola.Contains(lettera);
                             if(contiene == true)
@@ -79,24 +84,21 @@
                 }
                 else if (rand == 2)
                 {
-
+                    Console.WriteLine();
                     parola = livello1[1];
                     for (int i = 0; i < parola.Length; i++)
                     {
                         nascosta += "_";
 
                     }
-                    Console.WriteLine("-------------------------");
+                    
                     Console.WriteLine(nascosta);
                     pa = nascosta.ToCharArray();
                     for (int k = 7; k > 0; k--)
                     {
                         Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
                     Console.WriteLine();
-                    for (int j = 0; j < z; j++)
-                    {
-                        Console.WriteLine("le parole usate sono: " + paroleUsate[j]);
-                    }
+                    paroleU(paroleUsate, z);
                     Console.WriteLine();
                         Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
                         int scelta = Convert.ToInt32(Console.ReadLine());
@@ -148,24 +150,21 @@
                 }
                 else if (rand == 3)
                 {
-
+                    Console.WriteLine();
                     parola = livello1[2];
                     for (int i = 0; i < parola.Length; i++)
                     {
                         nascosta += "_";
 
                     }
-                    Console.WriteLine("-------------------------");
+                    
                     Console.WriteLine(nascosta);
                     pa = nascosta.ToCharArray();
                     for (int k = 7; k > 0; k--)
                     {
                         Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
                     Console.WriteLine();
-                    for (int j = 0; j < z; j++)
-                    {
-                        Console.WriteLine("le parole usate sono: " + paroleUsate[j]);
-                    }
+                    paroleU(paroleUsate, z);
                     Console.WriteLine();
                         Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
                         int scelta = Convert.ToInt32(Console.ReadLine());
@@ -218,13 +217,14 @@
                 }
             else if (rand == 4)
             {
+                Console.WriteLine();
                 parola = livello1[3];
                 for (int i = 0; i < parola.Length; i++)
                 {
                     nascosta += "_";
 
                 }
-                Console.WriteLine("-------------------------");
+                
                 Console.WriteLine(nascosta);
                 pa = nascosta.ToCharArray();
                 for (int k = 7; k > 0; k--)
@@ -232,10 +232,7 @@
                     Console.WriteLine();
                     Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
                     Console.WriteLine();
-                    for (int j = 0; j < z; j++)
-                    {
-                        Console.WriteLine("le parole usate sono: " + paroleUsate[j]);
-                    }
+                    paroleU(paroleUsate, z);
                     Console.WriteLine();
                     Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
                     int scelta = Convert.ToInt32(Console.ReadLine());
@@ -287,13 +284,14 @@
             }
             else if (rand == 5)
             {
+                Console.WriteLine();
                 parola = livello1[4];
                 for (int i = 0; i < parola.Length; i++)
                 {
                     nascosta += "_";
 
                 }
-                Console.WriteLine("-------------------------");
+                
                 Console.WriteLine(nascosta);
                 pa = nascosta.ToCharArray();
                 for (int k = 7; k > 0; k--)
@@ -301,10 +299,7 @@
                     Console.WriteLine();
                     Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
                     Console.WriteLine();
-                    for (int j = 0; j < z; j++)
-                    {
-                        Console.WriteLine("le parole usate sono: " + paroleUsate[j]);
-                    }
+                    paroleU(paroleUsate, z);
                     Console.WriteLine();
                     Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
                     int scelta = Convert.ToInt32(Console.ReadLine());
