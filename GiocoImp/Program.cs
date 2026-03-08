@@ -10,347 +10,102 @@
             }
             return paroleUsate;
         }
-        static void impiccato(string[] livello1,int livello)
+        static void gioco(string[] livello1,int livello)
         {
             int z = 0;
             string parola = "", nascosta = "";
-            char[] pa, paroleUsate = new char [7];
-            Random rnd = new Random();
+            char[] pa, paroleUsate = new char[7];
+            Console.WriteLine();
+            parola = livello1[0];
+            for (int i = 0; i < parola.Length; i++)
+            {
+                nascosta += "_";
+
+            }
+
+            Console.WriteLine(nascosta);
+            pa = nascosta.ToCharArray();
+            for (int k = 7; k > 0; k--)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
+                Console.WriteLine();
+                paroleU(paroleUsate, z);
+                Console.WriteLine();
+                Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
+                int scelta = Convert.ToInt32(Console.ReadLine());
+                if (scelta == 1)
+                {
+                    Console.WriteLine("Che lettera vuoi inserire?");
+                    char lettera = Convert.ToChar(Console.ReadLine());
+                    bool contiene = false;
+                    contiene = parola.Contains(lettera);
+                    if (contiene == true)
+                    {
+                        for (int i = 0; i < parola.Length; i++)
+                        {
+                            if (parola[i] == lettera)
+                            {
+                                pa[i] = lettera;
+                                Console.WriteLine(pa);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("La lettera " + lettera + " non e nella parola");
+                        paroleUsate[z] = lettera;
+                        z++;
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("Inserisci la parola");
+                    string indovina = Console.ReadLine();
+                    if (indovina == parola)
+                    {
+                        Console.WriteLine("Hai indovinato la parola, che era " + parola);
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Non hai indovinato la parola");
+                    }
+                }
+
+
+            }
+            Console.WriteLine("Hai esaurito i tentativi");
+            Console.WriteLine("La parola e: " + parola);
+        }
+
+        static void impiccato(string[] livello1,int livello)
+        {
+            
+                Random rnd = new Random();
                 int rand = rnd.Next(1, 5);
                 if (rand == 1)
                 {
-                        Console.WriteLine();
-                        parola = livello1[0];
-                        for (int i = 0; i < parola.Length; i++)
-                        {
-                            nascosta += "_";
-
-                        }
-                        
-                        Console.WriteLine(nascosta);
-                        pa = nascosta.ToCharArray();
-                    for(int k = 7; k > 0; k--) {
-                        Console.WriteLine();
-                        Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
-                        Console.WriteLine();
-                        paroleU(paroleUsate, z);
-                        Console.WriteLine();
-                        Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
-                        int scelta = Convert.ToInt32(Console.ReadLine());
-                        if (scelta == 1)
-                        {
-                            Console.WriteLine("Che lettera vuoi inserire?");
-                            char lettera = Convert.ToChar(Console.ReadLine());
-                            bool contiene = false;
-                            contiene = parola.Contains(lettera);
-                            if(contiene == true)
-                            {
-                                for(int i = 0;i < parola.Length; i++)
-                                {
-                                    if (parola[i] == lettera)
-                                    {
-                                        pa[i] = lettera;
-                                        Console.WriteLine(pa);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("La lettera " + lettera + " non e nella parola");
-                                paroleUsate[z] = lettera;
-                                z++;
-                            }
-
-                        }
-                        else
-                        {
-                            Console.WriteLine("Inserisci la parola");
-                            string indovina = Console.ReadLine();
-                            if (indovina == parola)
-                            {
-                                Console.WriteLine("Hai indovinato la parola, che era " + parola);
-                                return;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Non hai indovinato la parola");
-                            }
-                        }
-
-
-                    }
-                    Console.WriteLine("Hai esaurito i tentativi");
-                    Console.WriteLine("La parola e: " + parola);
+                        gioco(livello1,livello);
                 }
                 else if (rand == 2)
                 {
-                    Console.WriteLine();
-                    parola = livello1[1];
-                    for (int i = 0; i < parola.Length; i++)
-                    {
-                        nascosta += "_";
-
-                    }
-                    
-                    Console.WriteLine(nascosta);
-                    pa = nascosta.ToCharArray();
-                    for (int k = 7; k > 0; k--)
-                    {
-                        Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
-                    Console.WriteLine();
-                    paroleU(paroleUsate, z);
-                    Console.WriteLine();
-                        Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
-                        int scelta = Convert.ToInt32(Console.ReadLine());
-                        if (scelta == 1)
-                        {
-                            Console.WriteLine("Che lettera vuoi inserire?");
-                            char lettera = Convert.ToChar(Console.ReadLine());
-
-                            bool contiene = false;
-                            contiene = parola.Contains(lettera);
-                            if (contiene == true)
-                            {
-                                for (int i = 0; i < parola.Length; i++)
-                                {
-                                    if (parola[i] == lettera)
-                                    {
-                                        pa[i] = lettera;
-                                        Console.WriteLine(pa);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("La lettera " + lettera + " non e nella parola");
-                                paroleUsate[z] = lettera;
-                                z++;
-                            }
-
-                        }
-                        else
-                        {
-                            Console.WriteLine("Inserisci la parola");
-                            string indovina = Console.ReadLine();
-                            if (indovina == parola)
-                            {
-                                Console.WriteLine("Hai indovinato la parola, che era " + parola);
-                                return;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Non hai indovinato la parola");
-                            }
-                        }
-
-
-                    }
-                    Console.WriteLine("Hai esaurito i tentativi");
-                    Console.WriteLine("La parola e: " + parola);
+                gioco(livello1, livello);
                 }
                 else if (rand == 3)
                 {
-                    Console.WriteLine();
-                    parola = livello1[2];
-                    for (int i = 0; i < parola.Length; i++)
-                    {
-                        nascosta += "_";
-
-                    }
-                    
-                    Console.WriteLine(nascosta);
-                    pa = nascosta.ToCharArray();
-                    for (int k = 7; k > 0; k--)
-                    {
-                        Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
-                    Console.WriteLine();
-                    paroleU(paroleUsate, z);
-                    Console.WriteLine();
-                        Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
-                        int scelta = Convert.ToInt32(Console.ReadLine());
-                        if (scelta == 1)
-                        {
-                            Console.WriteLine("Che lettera vuoi inserire?");
-                            char lettera = Convert.ToChar(Console.ReadLine());
-
-                            bool contiene = false;
-                            contiene = parola.Contains(lettera);
-                            if (contiene == true)
-                            {
-                                for (int i = 0; i < parola.Length; i++)
-                                {
-                                    if (parola[i] == lettera)
-                                    {
-                                        pa[i] = lettera;
-                                        Console.WriteLine(pa);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("La lettera " + lettera + " non e nella parola");
-                                paroleUsate[z] = lettera;
-                                z++;
-                            }
-
-                        }
-                        else
-                        {
-                            Console.WriteLine("Inserisci la parola");
-                            string indovina = Console.ReadLine();
-                            if (indovina == parola)
-                            {
-                                Console.WriteLine("Hai indovinato la parola, che era " + parola);
-                                return;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Non hai indovinato la parola");
-                            }
-                        }
-
-
-                    }
-                    Console.WriteLine("Hai esaurito i tentativi");
-                    Console.WriteLine("La parola e: " + parola);
+                gioco(livello1, livello);
 
                 }
             else if (rand == 4)
             {
-                Console.WriteLine();
-                parola = livello1[3];
-                for (int i = 0; i < parola.Length; i++)
-                {
-                    nascosta += "_";
-
-                }
-                
-                Console.WriteLine(nascosta);
-                pa = nascosta.ToCharArray();
-                for (int k = 7; k > 0; k--)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
-                    Console.WriteLine();
-                    paroleU(paroleUsate, z);
-                    Console.WriteLine();
-                    Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
-                    int scelta = Convert.ToInt32(Console.ReadLine());
-                    if (scelta == 1)
-                    {
-                        Console.WriteLine("Che lettera vuoi inserire?");
-                        char lettera = Convert.ToChar(Console.ReadLine());
-
-                        bool contiene = false;
-                        contiene = parola.Contains(lettera);
-                        if (contiene == true)
-                        {
-                            for (int i = 0; i < parola.Length; i++)
-                            {
-                                if (parola[i] == lettera)
-                                {
-                                    pa[i] = lettera;
-                                    Console.WriteLine(pa);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("La lettera " + lettera + " non e nella parola");
-                            paroleUsate[z] = lettera;
-                            z++;
-                        }
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Inserisci la parola");
-                        string indovina = Console.ReadLine();
-                        if (indovina == parola)
-                        {
-                            Console.WriteLine("Hai indovinato la parola, che era " + parola);
-                            return;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Non hai indovinato la parola");
-                        }
-                    }
-
-
-                }
-                Console.WriteLine("Hai esaurito i tentativi");
-                Console.WriteLine("La parola e: " + parola);
+                gioco(livello1, livello);
             }
             else if (rand == 5)
             {
-                Console.WriteLine();
-                parola = livello1[4];
-                for (int i = 0; i < parola.Length; i++)
-                {
-                    nascosta += "_";
-
-                }
-                
-                Console.WriteLine(nascosta);
-                pa = nascosta.ToCharArray();
-                for (int k = 7; k > 0; k--)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Hai " + k + " tentetivi per indovinare la parola segreta");
-                    Console.WriteLine();
-                    paroleU(paroleUsate, z);
-                    Console.WriteLine();
-                    Console.WriteLine("Inserisci una lettera o vuoi provare ad indovinare la parola?(1/2)?");
-                    int scelta = Convert.ToInt32(Console.ReadLine());
-                    if (scelta == 1)
-                    {
-                        Console.WriteLine("Che lettera vuoi inserire?");
-                        char lettera = Convert.ToChar(Console.ReadLine());
-
-                        bool contiene = false;
-                        contiene = parola.Contains(lettera);
-                        if (contiene == true)
-                        {
-                            for (int i = 0; i < parola.Length; i++)
-                            {
-                                if (parola[i] == lettera)
-                                {
-                                    pa[i] = lettera;
-                                    Console.WriteLine(pa);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("La lettera " + lettera + " non e nella parola");
-                            paroleUsate[z] = lettera;
-                            z++;
-                        }
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Inserisci la parola");
-                        string indovina = Console.ReadLine();
-                        if (indovina == parola)
-                        {
-                            Console.WriteLine("Hai indovinato la parola, che era " + parola);
-                            return;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Non hai indovinato la parola");
-                        }
-                    }
-
-
-                }
-                Console.WriteLine("Hai esaurito i tentativi");
-                Console.WriteLine("La parola e: " + parola);
-
+                gioco(livello1, livello);
             }
-        }
            
             
         
