@@ -12,11 +12,13 @@
         }
         static void gioco(string[] animaleFacile, int livello)
         {
+            Random rnd = new Random();
+            int rand = rnd.Next(0, 4);
             int z = 0;
             string parola = "", nascosta = "";
             char[] pa, paroleUsate = new char[7];
             Console.WriteLine();
-            parola = animaleFacile[0];
+            parola = animaleFacile[rand];
             for (int i = 0; i < parola.Length; i++)
             {
                 nascosta += "_";
