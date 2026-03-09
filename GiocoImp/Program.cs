@@ -2,14 +2,16 @@
 {
     internal class Program
     {
+        //parole sbagliate
         static char[] paroleU(char[] paroleUsate, int z)
         {
             for (int j = 0; j < z; j++)
             {
-                Console.WriteLine("le parole usate sono: " + paroleUsate[j]);
+                Console.WriteLine("le parole sbagliate sono: " + paroleUsate[j]);
             }
             return paroleUsate;
         }
+        //modalità di gioco
         static void gioco(string[] animaleFacile, int livello)
         {
             Random rnd = new Random();
@@ -81,7 +83,7 @@
             Console.WriteLine("Hai esaurito i tentativi");
             Console.WriteLine("La parola e: " + parola);
         }
-
+        //scelta parola
         static void impiccato(string[] animaleFacile, int livello)
         {
 
@@ -109,9 +111,10 @@
                 gioco(animaleFacile, livello);
             }
 
-
+        }
             static void Main(string[] args)
             {
+            //dichiarazione categorie
                 string[] animaleFacile = { "cane", "gatto", "leone", "lupo", "orso" };
                 string[] animaleMedio = { "ghepardo", "canguro", "delfino", "gorilla", "pantera" };
                 string[] animaleDifficile = { "ornitorinco", "axolotl", "albatros", "camaleonte", "ippopotamo" };
@@ -128,6 +131,7 @@
                 string categoria = Console.ReadLine();
                 if (categoria == "animali")
                 {
+                //scelta livello di difficoltà
                     Console.WriteLine("scegli il livello di difficoltà");
                     Console.WriteLine("-------------------------------");
                     Console.WriteLine("1/2/3");
@@ -135,59 +139,116 @@
                     if(livello == 1)
                     {
                         impiccato(animaleFacile, livello);
+                    Console.WriteLine("vuoi rigiocare(s/n)?");
+                        string risposta = Console.ReadLine();
+                    if(risposta == "s")
+                    {
+                        impiccato(animaleFacile, livello);
+                    }
+                    
                     }
                     else if(livello == 2)
                     {
                         impiccato(animaleMedio, livello);
+                    Console.WriteLine("vuoi rigiocare(s/n)?");
+                    string risposta = Console.ReadLine();
+                    if (risposta == "s")
+                    {
+                        impiccato(animaleMedio, livello);
                     }
+                }
                     else if(livello == 3)
                     {
                         impiccato(animaleDifficile, livello);
+                    Console.WriteLine("vuoi rigiocare(s/n)?");
+                    string risposta = Console.ReadLine();
+                    if (risposta == "s")
+                    {
+                        impiccato(animaleDifficile, livello);
                     }
+                }
 
                 }
                 else if(categoria == "paesi")
                 {
-                    Console.WriteLine("scegli il livello di difficoltà");
+                //scelta livello di difficoltà
+                Console.WriteLine("scegli il livello di difficoltà");
                     Console.WriteLine("-------------------------------");
                     Console.WriteLine("1/2/3");
                     int livello = Convert.ToInt32(Console.ReadLine());
                     if (livello == 1)
                     {
                         impiccato(paesiFacile, livello);
+                    Console.WriteLine("vuoi rigiocare(s/n)?");
+                    string risposta = Console.ReadLine();
+                    if (risposta == "s")
+                    {
+                        impiccato(paesiFacile, livello);
                     }
+                }
                     else if (livello == 2)
                     {
                         impiccato(paesiMedio, livello);
+                    Console.WriteLine("vuoi rigiocare(s/n)?");
+                    string risposta = Console.ReadLine();
+                    if (risposta == "s")
+                    {
+                        impiccato(paesiMedio, livello);
                     }
+                }
                     else if (livello == 3)
+                    {
+                        impiccato(paesiDifficile, livello);
+                    Console.WriteLine("vuoi rigiocare(s/n)?");
+                    string risposta = Console.ReadLine();
+                    if (risposta == "s")
                     {
                         impiccato(paesiDifficile, livello);
                     }
                 }
+                }
                 else if(categoria == "tecnologia")
                 {
-                    Console.WriteLine("scegli il livello di difficoltà");
+                //scelta livello di difficoltà
+                Console.WriteLine("scegli il livello di difficoltà");
                     Console.WriteLine("-------------------------------");
                     Console.WriteLine("1/2/3");
                     int livello = Convert.ToInt32(Console.ReadLine());
                     if (livello == 1)
                     {
                         impiccato(tecnologiaFacile, livello);
+                    Console.WriteLine("vuoi rigiocare(s/n)?");
+                    string risposta = Console.ReadLine();
+                    if (risposta == "s")
+                    {
+                        impiccato(tecnologiaFacile, livello);
                     }
+                }
                     else if (livello == 2)
                     {
                         impiccato(tecnologiaMedio, livello);
+                    Console.WriteLine("vuoi rigiocare(s/n)?");
+                    string risposta = Console.ReadLine();
+                    if (risposta == "s")
+                    {
+                        impiccato(tecnologiaMedio, livello);
                     }
+                }
                     else if (livello == 3)
                     {
                         impiccato(tecnologiaDifficile, livello);
+                    Console.WriteLine("vuoi rigiocare(s/n)?");
+                    string risposta = Console.ReadLine();
+                    if (risposta == "s")
+                    {
+                        impiccato(tecnologiaDifficile, livello);
                     }
+                }
                 }
 
 
 
             }
-        }
+        
     }
 }
